@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,14 +16,25 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
+  state = {
+    placeName: ""
+  }
+
+  placeNameHandler = (evt) => {
+    this.setState({
+      placeName: evt
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Alex's App Fuck You!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <View style={styles.inputContainer}>
+          <TextInput onChangeText={this.placeNameHandler} style={styles.input} value={this.state.placeName} placeholder="Please Type"/>
+          <Button title="Add" />
+        </View>
       </View>
     );
   }
@@ -32,18 +43,27 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    paddingTop: 35,
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'salmon',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  input: {
+    borderStyle: 'solid',
+    borderBottomWidth: 1,
+    borderColor: 'black',
+    width: 200,
+    height: 35,
+  },
+  inputContainer: {
+    //flex: 1,
+    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
