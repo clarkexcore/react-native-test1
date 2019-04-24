@@ -1,13 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -30,10 +24,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header headerTitle="Albums" />
+        <AlbumList />
         <Text style={styles.welcome}>Welcome to Alex's App Fuck You!</Text>
         <View style={styles.inputContainer}>
           <TextInput onChangeText={this.placeNameHandler} style={styles.input} value={this.state.placeName} placeholder="Please Type"/>
-          <Button title="Add" />
+          <Button style={styles.buttonAdd} title="Add" />
         </View>
       </View>
     );
@@ -65,5 +61,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  buttonAdd:{
+    backgroundColor: "green",
+    borderColor: "black",
+    textTransform: "uppercase",
   },
 });
