@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
@@ -13,13 +13,13 @@ import AlbumList from './src/components/AlbumList';
 
 export default class App extends Component {
   state = {
-    placeName: ""
+    placeName: ''
   }
 
   placeNameHandler = (evt) => {
     this.setState({
       placeName: evt
-    })
+    });
   }
 
   render() {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 35,
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: 'salmon',
   },
   welcome: {
