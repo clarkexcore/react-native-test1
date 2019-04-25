@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
@@ -27,11 +27,6 @@ export default class App extends Component {
       <View style={styles.container}>
         <Header headerTitle="Albums" />
         <AlbumList />
-        <Text style={styles.welcome}>Welcome to Alex's App Fuck You!</Text>
-        <View style={styles.inputContainer}>
-          <TextInput onChangeText={this.placeNameHandler} style={styles.input} value={this.state.placeName} placeholder="Please Type"/>
-          <Button style={styles.buttonAdd} title="Add" />
-        </View>
       </View>
     );
   }
@@ -43,28 +38,6 @@ const styles = StyleSheet.create({
     paddingTop: 35,
     justifyContent: 'flex-start',
     backgroundColor: '#d6edff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  input: {
-    borderStyle: 'solid',
-    borderBottomWidth: 1,
-    borderColor: 'black',
-    width: 200,
-    height: 35,
-  },
-  inputContainer: {
-    //flex: 1,
-    alignItems: "center",
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  buttonAdd:{
-    backgroundColor: "green",
-    borderColor: "black",
-    textTransform: "uppercase",
+    paddingBottom: 25,
   },
 });
